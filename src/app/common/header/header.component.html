@@ -1,0 +1,127 @@
+
+<div class="visible-xs menu-gradient-gray ip-menu-slide" *ngIf="isIpMenuOpen">
+
+    <div class="row menu-gradient-marun ip-menu-persion">
+
+        <div class="ip-menu-pimage col-xs-4">
+            <img src="/assets/img/ip-profile.png" alt="Profile Image">
+        </div>
+
+        <div class="ip-menu-pname col-xs-8">
+            {{userName}}
+            <div class="ip-menu-iplogout">
+                <a href="/assets/logout.html">Sign out</a>
+            </div>
+        </div>
+
+
+        <!--      <div class="ip-menu-iplogout col-xs-12">
+            <a href="/assets/logout.html">Sign out</a>
+        </div>
+        -->
+
+    </div>
+
+
+
+    <div >
+        Priorities
+    </div>
+
+    <div class="row ip-menu-items">
+        &nbsp;
+    </div>
+
+</div>
+
+
+<header [ngClass]="{ 'ip-menu-open' : isIpMenuOpen} " class="navbar navbar-inverse navbar-fixed-top bs-docs-nav visible-xs " role="banner ">
+    <div class="container-fluid " style="font-size:16px ">
+
+        <div class="ip-header-logo pull-left ">
+            <img src="/assets/img/merch-logo-ip.png " alt="Logo Image ">
+        </div>
+
+        <div class="ip-header-title text-center pull-left ">Priority</div>
+
+        <div class="ip-header-menu pull-right " (click)="onIpMenuToggle(); ">
+            <i class="fa fa-bars " aria-hidden="true "></i>
+        </div>
+    </div>
+</header>
+
+
+
+
+<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav hidden-xs " role="banner ">
+    <div class="container-fluid" style="font-size:16px">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+            <a routerLink="/monitor" class="nav-brand" style="margin-right:10px"><img src="/assets/img/new-Merch-Circle-long-50x156.png" alt="Logo Image"></a>
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav">
+
+                <li (click)="setActive('monitor')" class="{{getActive('monitor')}}">
+                    <a routerLink="/priority" routerLinkActive="active" (click)="hideGeo(0)">Priority SKU</a>
+                </li>
+                
+                <li class="dropdown" dropdown (click)="setActive('plnmerchgroup')" class="{{getActive('plnmerchgroup')}}">
+                    <a class="planning-toggle" dropdownToggle dropdown-open (click)="hideGeo(0)">Plan <b class="caret"></b></a>
+                    <ul class="dropdown-menu" dropdownMenu aria-labelledby="planning-dropdown">
+                        <li>
+                            <a routerLink="/plnmerchgroup" (click)="hideGeo(0)">
+                                <img src="/assets/img/maroon-group-icon.png" alt="Profile Image">
+                                <span style="margin-left: 8px;">Priority</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="/plnmerchsetup" (click)="hideGeo(0)">
+                                <img src="/assets/img/maroon-1person-icon.png" alt="Profile Image">
+                                <span style="margin-left: 8px;">Accounts</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown" dropdown>
+                    <a class="planning-toggle" dropdownToggle dropdown-open style="padding-top:0px;padding-bottom:0px;">
+                        <img src="/assets/img/profile-dropdown.png" alt="Profile Image">
+                    </a>
+                    <ul class="dropdown-menu" dropdownMenu aria-labelledby="profile-dropdown" style="padding:0px">
+
+                        <li>
+                            <div class="container-fluid well span6" style="margin-bottom:0px">
+                                <div class="row-fluid">
+                                    <div class="span2">
+                                        <img src="/assets/img/dkBlu-default_profile.png" style="width:150px" class="img-circle">
+                                    </div>
+
+                                    <div class="span8">
+                                        <h3>{{userName}}</h3>
+                                        <h6>GSN: {{gsn}}</h6>
+                                    </div>
+                                    <div class="btn-group-sm">
+                                        <a type="button" href="/assets/logout.html" class="btn-sm btn-success">Sign out</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </li>
+
+
+
+            </ul>
+        </nav>
+    </div>
+</header>
